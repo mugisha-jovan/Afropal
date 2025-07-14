@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - MugiTech Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: rgba(255, 248, 240, 0.95); /* Warm off-white with a hint of peach */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .navbar {
+            background-color: transparent;
+        }
+
+        .navbar a {
+            color: #2c3e50; /* Dark blue-gray text for better visibility */
+            font-weight: bold;
+            text-decoration: none;
+            padding: 8px 12px;
+            font-size: 25px;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(44, 62, 80, 0.1);
+            border-radius: 4px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: transparent;
+            color: #2c3e50;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+        }
+
+        .service-card {
+            background:wheat;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            padding: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: #6e48aa;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .service-card ul {
+            list-style-type: none;
+            margin-bottom: 15px;
+        }
+
+        .service-card ul li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .service-card ul li:before {
+            content: "✓";
+            color: #6e48aa;
+            position: absolute;
+            left: 0;
+        }
+
+        .why-choose-us {
+            background: #f0f0f0;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .why-choose-us h2 {
+            margin-bottom: 20px;
+            color: #6e48aa;
+        }
+
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .benefit-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            width: 200px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta {
+            text-align: center;
+            padding: 30px;
+            background:palevioletred;
+            color: white;
+            border-radius: 10px;
+        }
+
+        .cta h2 {
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
+
+        .cta p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #6e48aa;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #f0f0f0;
+            transform: scale(1.05);
+        }
+        .social-icons{
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                gap:15px;
+            }
+            .copyright{
+                text-align:center;
+                margin-bottom:20px;
+            }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: rgb(31, 2, 2);
+        }
+
+        @media (max-width: 768px) {
+            .service-card {
+                width: 100%;
+            }
+        }
+
+        .main-footer {
+            background: #2c3e50;
+            color: #fff;
+            padding: 50px 0 20px 0;
+            border-radius: 0 0 12px 12px;
+            margin-top: 40px;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .footer-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .footer-col {
+            flex: 1 1 220px;
+            min-width: 200px;
+        }
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-col ul li {
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+        .footer-col ul li i {
+            margin-right: 10px;
+            color: #3498db;
+        }
+        .footer-col a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-col a:hover {
+            color: #3498db;
+        }
+        .footer-social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .footer-social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #34495e;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.2rem;
+            transition: background 0.2s, color 0.2s;
+        }
+        .footer-social-icons a:hover {
+            background: #3498db;
+            color: #fff;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 25px;
+            color: #fff;
+            font-size: 1rem;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #34495e;
+            margin: 30px 0 15px 0;
+        }
+        @media (max-width: 900px) {
+            .footer-row {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navmenu" style="display:flex;align-items:center;justify-content:space-between;background:transparent;">
+        <img src="afropal logo.png" class="logo" alt="Afropal Logo">
+        <ul class="navbar" style="background:transparent;">
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="portfolio.html">PORTFOLIO</a></li>
+            <li><a href="contact.html">CONTACT US</a></li>
+        </ul>
+    </div>
+    <hr style="border: none; border-top: 1.5px solid #e0e0e0; margin: 0 0 30px 0;">
+    <div class="container">
+        <br>
+        <br>
+        <br>
+        <br>
+        <header>
+            <h1>Our Services</h1>
+            <p>At Mugi- Tech Solutions, we provide cutting-edge technology services to help businesses and individuals thrive in the digital world.</p>
+        </header>
+
+        <div class="services">
+            <!-- Service 1: Web Design -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Web Design & Development</h3>
+                <img src="coding.webp" alt="Web Design & Development" style="width:100%;max-width:300px;display:block;margin:10px auto 18px auto;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                <p>We create stunning, responsive, and user-friendly websites that drive engagement and conversions.</p>
+                <ul>
+                    <li>Custom Website Design</li>
+                    <li>E-Commerce Development</li>
+                    <li>CMS Integration</li>
+                    <li>SEO Optimization</li>
+                </ul>
+            </div>
+
+            <!-- Service 2: Graphics Design -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <h3>Graphics Design</h3>
+                <img src="graphics.jfif" alt="Graphics Design" style="width:100%;max-width:300px;display:block;margin:10px auto 18px auto;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                <p>Make a lasting impression with professional and creative designs for your brand.</p>
+                <ul>
+                    <li>Logo Design</li>
+                    <li>Business Cards & Flyers</li>
+                    <li>Social Media Graphics</li>
+                    <li>Branding & Identity</li>
+                </ul>
+            </div>
+
+            <!-- Service 3: Mobile App Dev -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Mobile App Development</h3>
+                <img src="mobile.webp" alt="Mobile App Development" style="width:100%;max-width:300px;display:block;margin:10px auto 18px auto;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                <p>Turn your ideas into powerful mobile applications for Android and iOS.</p>
+                <ul>
+                    <li>Native & Hybrid Apps</li>
+                    <li>UI/UX Design</li>
+                    <li>App Maintenance & Support</li>
+                </ul>
+            </div>
+
+            <!-- Service 4: IT Trainings -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>IT Trainings</h3>
+                <img src="trainings.webp" alt="IT Trainings" style="width:100%;max-width:300px;display:block;margin:10px auto 18px auto;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                <p>Comprehensive training programs to enhance your technical skills and knowledge.</p>
+                <ul>
+                    <li>Web Development Training</li>
+                    <li>Mobile App Development</li>
+                    <li>Database Management</li>
+                    <li>Network Security</li>
+                    <li>IT Support & Maintenance</li>
+                </ul>
+            </div>
+
+            <!-- Service 5: Computer Repair -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3>Computer Repair</h3>
+                <img src="repair.webp" alt="Computer Repair" style="width:100%;max-width:300px;display:block;margin:10px auto 18px auto;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                <p>Fast and reliable repair services to keep your devices running smoothly.</p>
+                <ul>
+                    <li>Hardware & Software Troubleshooting</li>
+                    <li>Virus & Malware Removal</li>
+                    <li>Data Recovery</li>
+                    <li>Upgrades & Optimization</li>
+                </ul>
+            </div>
+
+            <!-- Service 6: Digital Marketing -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h3>Digital Marketing</h3>
+                <img src="marketing.webp" alt="Digital Marketing" style="width:100%;max-width:300px;display:block;margin:10px auto 18px auto;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                <p>Boost your online presence and reach your target audience effectively.</p>
+                <ul>
+                    <li>Social Media Marketing</li>
+                    <li>SEO & Content Marketing</li>
+                    <li>Email Marketing</li>
+                    <li>PPC Advertising</li>
+                </ul>
+            </div>
+
+            <!-- Service 7: Phones & Laptops Sales -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-laptop"></i>
+                </div>
+                <h3>Phones & Laptops Sales</h3>
+                <img src="phones.webp" alt="Phones & Laptops Sales" style="width:100%;max-width:300px;display:block;margin:10px auto 18px auto;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                <p>Get high-quality, affordable smartphones and laptops for personal and business use.</p>
+                <ul>
+                    <li>Brand New & Refurbished Devices</li>
+                    <li>Warranty Included</li>
+                    <li>Bulk Purchases Available</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Why Choose Us Section -->
+        <div class="why-choose-us">
+            <h2>Why Choose Afropal Tech Solutions?</h2>
+            <div class="benefits">
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i> Experienced Team
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i> Affordable Pricing
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i> Fast & Reliable
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i> Satisfaction Guaranteed
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta">
+            <h2>Let's Bring Your Ideas to Life!</h2>
+            <p>Contact us today for a free consultation.</p>
+            <a href="#contact" class="btn">Get a Free Quote</a>
+        </div>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-container">
+                <div class="footer-row">
+                    <div class="footer-col about">
+                        <img src="afropal logo.png" class="logo" alt="Afropal Logo" style="display:block;margin:0 auto 15px auto;">
+                        <h3>About Afropal</h3>
+                        <p>Your premier destination for innovative technology solutions. We bring you the latest in digital excellence at affordable prices.</p>
+                    </div>
+                    <div class="footer-col links">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col contact">
+                        <h3>Contact Info</h3>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</li>
+                            <li><i class="fas fa-phone"></i> +256701720024</li>
+                            <li><i class="fas fa-envelope"></i> info@afropaltechsolutions.com</li>
+                        </ul>
+                    </div>
+                    <div class="footer-col social">
+                        <h3>Follow Us</h3>
+                        <div class="footer-social-icons">
+                            <a href="https://facebook.com/mugitechsolutions" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://instagram.com/mugitechsolutions" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://twitter.com/mugitechsolutions" target="_blank" title="Twitter">
+                                <img src="x.png" alt="Twitter" width="30">
+                            </a>
+                            <a href="https://wa.me/256701720024" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://linkedin.com/in/https://www.linkedin.com/in/mugisha-jovan-5b81902bb" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="footer-bottom">
+                    <p>© 2025 Afropal Tech Solutions. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

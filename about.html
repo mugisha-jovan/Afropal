@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Mugi-Tech Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --text: #333;
+            --light-text: #666;
+            --white: #fff;
+            --background: rgba(255, 248, 240, 0.95);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, rgba(255, 248, 240, 0.95) 0%, rgba(240, 248, 255, 0.95) 100%);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 40px 20px;
+        }
+        
+        /* Navigation Styles */
+        .navmenu {
+            background-color: transparent;
+            padding: 10px 20px;
+            position: relative;
+            z-index: 100;
+        }
+
+        .navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end;
+            background-color: transparent;
+        }
+
+        .navbar li {
+            margin-left: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: bold;
+            padding: 8px 15px;
+            font-size: 25px;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(44, 62, 80, 0.1);
+            color: #3498db;
+        }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: #3498db;
+            transition: width 0.3s ease;
+        }
+
+        .navbar a:hover::after {
+            width: 80%;
+        }
+        
+        /* Header Styles */
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .page-header h1 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .page-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .page-header p {
+            color: var(--light-text);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* About Content */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        
+        .company-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+        
+        .company-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .company-image:hover img {
+            transform: scale(1.02);
+        }
+        
+        .company-info {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 0;
+            }
+        
+        .company-info p {
+            margin-bottom: 20px;
+            color: var(--light-text);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .feature-item p {
+            font-size: 0.95rem;
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+        
+        /* Team Section */
+        .team-section {
+            margin-top: 80px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .team-member {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid var(--secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover img {
+            transform: scale(1.05);
+            border-color: var(--primary);
+        }
+        
+        .team-member h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+        
+        .team-member p {
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        /* Footer Styles */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .social-icons a {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin: 30px 0;
+            color: var(--light-text);
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            .company-info, .team-section {
+                padding: 20px;
+            }
+        }
+        .footer-x-icon {
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            vertical-align: middle;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="navmenu" style="display:flex;align-items:center;justify-content:space-between;">
+        <img src="afropal logo.png" class="logo" alt="Afropal Logo">
+        <ul class="navbar">
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="portfolio.html">PORTFOLIO</a></li>
+            <li><a href="contact.html">CONTACT US</a></li>
+        </ul>
+    </div>
+    <hr style="border: none; border-top: 1.5px solid #e0e0e0; margin: 0 0 30px 0;">
+    
+    <div class="container">
+        <header class="page-header">
+            <h1>About Us</h1>
+            <p>Delivering innovative digital solutions tailored to your business needs</p>
+        </header>
+        
+        <div class="about-content">
+            <div class="company-image">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Mugi-Tech Solutions Team">
+            </div>
+            
+            <div class="company-info">
+                <h2 class="section-title">Our Story</h2>
+                <p>Founded in 2023, Mugi-Tech Solutions has been at the forefront of delivering cutting-edge web development and digital solutions to businesses worldwide. Our mission is to transform ideas into powerful digital experiences that drive growth and innovation.</p>
+                
+                <p>With a team of passionate professionals and a commitment to excellence, we've helped numerous businesses establish their digital presence and achieve their goals through innovative technology solutions.</p>
+            </div>
+        </div>
+                
+                <div class="features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                    <i class="fas fa-rocket"></i>
+                        </div>
+                <h3>Our Mission</h3>
+                <p>To empower businesses with innovative digital solutions that drive growth and success in the modern digital landscape.</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                    <i class="fas fa-eye"></i>
+                        </div>
+                <h3>Our Vision</h3>
+                <p>To be the leading provider of cutting-edge digital solutions, recognized for our innovation, quality, and client satisfaction.</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Our Values</h3>
+                <p>Innovation, integrity, excellence, and client satisfaction are the core values that drive everything we do.</p>
+            </div>
+        </div>
+        
+        <div class="team-section">
+            <h2 class="section-title">Our Team</h2>
+            <div class="team-members">
+                <div class="team-member">
+                    <img src="profile.jpeg" alt="Team Member">
+                    <h3>Mugisha Jovan</h3>
+                    <p>Founder & CEO</p>
+                    <p style="font-size: 0.9rem; color: var(--light-text); line-height: 1.6; margin-top: 10px;">
+                        With 3 years of experience in the tech industry, Mugisha brings a wealth of knowledge and expertise to Mugi-Tech Solutions. His vision and leadership have been instrumental in establishing the company as a trusted provider of innovative digital solutions.
+                    </p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="norman.jpeg" alt="Team Member">
+                    <h3>Norman Haq Sayiga</h3>
+                    <p>Lead Developer</p>
+                    <p style="font-size: 0.9rem; color: var(--light-text); line-height: 1.6; margin-top: 10px;">
+                        With over 5 years of experience in full stack and software development, Norman brings deep technical expertise to our team. His comprehensive knowledge of both front-end and back-end technologies enables him to architect and implement robust, scalable solutions that drive our clients' success.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col about">
+                    <img src="afropal logo.png" class="logo" alt="Afropal Logo" style="display:block;margin:0 auto 15px auto;">
+                    <h3>About Afropal</h3>
+                    <p>Your premier destination for innovative technology solutions. We bring you the latest in digital excellence at affordable prices.</p>
+                </div>
+                <div class="footer-col links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</li>
+                        <li><i class="fas fa-phone"></i> +256701720024</li>
+                        <li><i class="fas fa-envelope"></i> info@afropaltechsolutions.com</li>
+                    </ul>
+                </div>
+                <div class="footer-col social">
+                    <h3>Follow Us</h3>
+                    <div class="footer-social-icons">
+                        <a href="https://facebook.com/mugitechsolutions" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/mugitechsolutions" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/mugitechsolutions" target="_blank" title="Twitter">
+                            <img src="x.png" alt="Twitter" width="30">
+                        </a>
+                        <a href="https://wa.me/256701720024" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://linkedin.com/in/https://www.linkedin.com/in/mugisha-jovan-5b81902bb" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="footer-bottom">
+                <p>© 2025 Afropal Tech Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <style>
+        .main-footer {
+            background: #2c3e50;
+            color: #fff;
+            padding: 50px 0 20px 0;
+            border-radius: 0 0 12px 12px;
+            margin-top: 40px;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .footer-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .footer-col {
+            flex: 1 1 220px;
+            min-width: 200px;
+        }
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-col ul li {
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+        .footer-col ul li i {
+            margin-right: 10px;
+            color: #3498db;
+        }
+        .footer-col a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-col a:hover {
+            color: #3498db;
+        }
+        .footer-social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .footer-social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #34495e;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.2rem;
+            transition: background 0.2s, color 0.2s;
+        }
+        .footer-social-icons a:hover {
+            background: #3498db;
+            color: #fff;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 25px;
+            color: #fff;
+            font-size: 1rem;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #34495e;
+            margin: 30px 0 15px 0;
+        }
+        @media (max-width: 900px) {
+            .footer-row {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
+</body>
+</html>

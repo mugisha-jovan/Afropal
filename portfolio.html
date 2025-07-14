@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Web Development Projects</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --border-radius: 8px;
+        }
+        
+        .navmenu {
+            background-color: transparent;
+            padding: 10px 20px;
+            position: relative;
+            z-index: 100;
+        }
+        
+        .navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end;
+            background-color: transparent;
+        }
+        
+        .navbar a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: bold;
+            padding: 8px 12px;
+            font-size: 25px;
+        }
+        
+        .navbar a:hover {
+            background-color: #555;
+            border-radius: 4px;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        
+        header {
+            text-align: center;
+            margin: 80px auto 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            position: relative;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin: 0;
+            padding: 10px 0;
+            text-align: center;
+            position: relative;
+            width: 100%;
+        }
+        
+        h1:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+        
+        .portfolio-intro {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+        }
+        
+        .project-header h2 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        
+        .project-header h3 {
+            margin: 5px 0 0;
+            font-size: 1rem;
+            font-weight: normal;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-features {
+            margin-bottom: 20px;
+        }
+        
+        .feature-category {
+            margin-bottom: 15px;
+        }
+        
+        .feature-category h4 {
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+            border-bottom: 1px solid var(--secondary-color);
+            padding-bottom: 3px;
+        }
+        
+        .feature-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        
+        .feature-list li {
+            padding: 6px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .project-description {
+            margin-bottom: 20px;
+        }
+        
+        .project-link {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .project-link:hover {
+            background-color: #c0392b;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #777;
+            background-color: transparent; /* Remove light blue background */
+        }
+        
+        #footer {
+            background-color: transparent; /* Remove light blue background */
+        }
+        
+        .social-icons {
+            margin-bottom: 20px;
+        }
+        
+        .social-icons a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+        
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navmenu" style="display:flex;align-items:center;justify-content:space-between;">
+        <img src="afropal logo.png" class="logo" alt="Afropal Logo">
+        <ul class="navbar">
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="portfolio.html">PORTFOLIO</a></li>
+            <li><a href="contact.html">CONTACT US</a></li>
+        </ul>
+    </div>
+    <hr style="border: none; border-top: 1.5px solid #e0e0e0; margin: 0 0 30px 0;">
+    <header>
+        <h1>OUR PROJECTS</h1>
+    </header>
+    
+    <section class="portfolio-intro">
+        <p>Here are some of the projects we've developed, showcasing our skills in web development, business solutions, and innovative digital platforms.</p>
+    </section>
+    
+    
+    <div class="projects-grid">
+        <!-- FHD Fays Project -->
+        <div class="project-card">
+            <div class="project-header">
+                <h2>FHD Fays</h2>
+                <h3>Business Startup Platform</h3>
+            </div>
+            
+            <div class="project-content">
+                <div class="project-features">
+                    <div class="feature-category">
+                        <h4>IDEA</h4>
+                        <ul class="feature-list">
+                            <li>STARTING A BUSINESS</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-category">
+                        <h4>BUSINESS MODEL</h4>
+                        <ul class="feature-list">
+                            <li>Funding solutions</li>
+                            <li>Market conditions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-category">
+                        <h4>VISION</h4>
+                        <ul class="feature-list">
+                            <li>Business analysis</li>
+                            <li>Development roadmap</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="project-description">
+                    <p>A comprehensive platform helping entrepreneurs start businesses with guided steps, resources, and funding options.</p>
+                </div>
+                
+                <a href="https://www.fhdfays.com" class="project-link" target="_blank">Visit FHD Fays</a>
+            </div>
+        </div>
+        
+        <!-- Namronet Project -->
+        <div class="project-card">
+            <div class="project-header">
+                <h2>Namronet</h2>
+                <h3>Network Solutions Provider</h3>
+            </div>
+            
+            <div class="project-content">
+                <div class="project-features">
+                    <div class="feature-category">
+                        <h4>FEATURES</h4>
+                        <ul class="feature-list">
+                            <li>Network infrastructure</li>
+                            <li>IT solutions</li>
+                            <li>Business connectivity</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="project-description">
+                    <p>A professional network solutions provider offering comprehensive IT services and infrastructure development.</p>
+                </div>
+                
+                <a href="https://www.namronet.com" class="project-link" target="_blank">Visit Namronet</a>
+            </div>
+        </div>
+        
+        <!-- Namrolink Project -->
+        <div class="project-card">
+            <div class="project-header">
+                <h2>Namrolink</h2>
+                <h3>Digital Connection Platform</h3>
+            </div>
+            
+            <div class="project-content">
+                <div class="project-features">
+                    <div class="feature-category">
+                        <h4>FEATURES</h4>
+                        <ul class="feature-list">
+                            <li>Digital networking</li>
+                            <li>Resource linking</li>
+                            <li>Community building</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="project-description">
+                    <p>A platform designed to connect businesses, resources, and professionals in a digital ecosystem.</p>
+                </div>
+                
+                <a href="https://www.namrolink.com" class="project-link" target="_blank">Visit Namrolink</a>
+            </div>
+        </div>
+        
+        <!-- Namrolite Project -->
+        <div class="project-card">
+            <div class="project-header">
+                <h2>Namrolite</h2>
+                <h3>Lightweight Business Solutions</h3>
+            </div>
+            
+            <div class="project-content">
+                <div class="project-features">
+                    <div class="feature-category">
+                        <h4>FEATURES</h4>
+                        <ul class="feature-list">
+                            <li>Streamlined tools</li>
+                            <li>Efficient processes</li>
+                            <li>Minimalist approach</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="project-description">
+                    <p>Lightweight business solutions offering essential tools without unnecessary complexity.</p>
+                </div>
+                
+                <a href="https://www.namrolite.com" class="project-link" target="_blank">Visit Namrolite</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col about">
+                    <img src="afropal logo.png" class="logo" alt="Afropal Logo" style="display:block;margin:0 auto 15px auto;">
+                    <h3>About Afropal</h3>
+                    <p>Your premier destination for innovative technology solutions. We bring you the latest in digital excellence at affordable prices.</p>
+                </div>
+                <div class="footer-col links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</li>
+                        <li><i class="fas fa-phone"></i> +256701720024</li>
+                        <li><i class="fas fa-envelope"></i> info@afropaltechsolutions.com</li>
+                    </ul>
+                </div>
+                <div class="footer-col social">
+                    <h3>Follow Us</h3>
+                    <div class="footer-social-icons">
+                        <a href="https://facebook.com/mugitechsolutions" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/mugitechsolutions" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/mugitechsolutions" target="_blank" title="Twitter"><img src="x.png" alt="Twitter" width="30"></a>
+                        <a href="https://wa.me/256701720024" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://linkedin.com/in/https://www.linkedin.com/in/mugisha-jovan-5b81902bb" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="footer-bottom">
+                <p>© 2025 Afropal Tech Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <style>
+        .main-footer {
+            background: #2c3e50;
+            color: #fff;
+            padding: 50px 0 20px 0;
+            border-radius: 0 0 12px 12px;
+            margin-top: 40px;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .footer-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .footer-col {
+            flex: 1 1 220px;
+            min-width: 200px;
+        }
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-col ul li {
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+        .footer-col ul li i {
+            margin-right: 10px;
+            color: #3498db;
+        }
+        .footer-col a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-col a:hover {
+            color: #3498db;
+        }
+        .footer-social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .footer-social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #34495e;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.2rem;
+            transition: background 0.2s, color 0.2s;
+        }
+        .footer-social-icons a:hover {
+            background: #3498db;
+            color: #fff;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 25px;
+            color: #fff;
+            font-size: 1rem;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #34495e;
+            margin: 30px 0 15px 0;
+        }
+        @media (max-width: 900px) {
+            .footer-row {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
+</body>
+</html>    
